@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 Reasons Why I Like You</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        .message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday, Wale!🎉</h1>
+        
+        <button onclick="toggleMessage()">Show Special Message</button>
+        
+        <div class="message" id="special-message">
+            <p>Wale, my genius, my inspiration, my favorite person—today is all about celebrating you! From the moment you came into my life, you've amazed me in ways words can’t fully capture. Your mind is brilliant, your heart is kind, and your presence is a gift to everyone lucky enough to know you.</p>
+            <p>I hope today reminds you of how incredibly special you are. You have a rare light, one that shines so effortlessly, and I want you to always, always believe in yourself the way I believe in you. Your dreams are limitless, and I have no doubt that you will achieve everything your heart desires.</p>
+            <p>Thank you for being you—smart, inspiring, funny, and absolutely wonderful. I love and appreciate you more than words can say.</p>
+            <p class="fw-bold">Cheers to another year of greatness, love, and unforgettable moments! 💙✨</p>
+        </div>
+        <h3>Here's a 100 reasons why I like you.</h3>
+        <div id="reason-box">
+            <img id="cute-image-1" src="images/cute1.jpeg" alt="Cute Image" />
+            <p id="reason"></p>
+        </div>
+
+        <ul id="reason-list"></ul>
+
+        <div class="buttons">
+            <button onclick="previousReason()">Previous</button>
+            <button onclick="randomReason()">Random</button>
+            <button onclick="nextReason()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleMessage() {
+            const messageDiv = document.getElementById("special-message");
+            if (messageDiv.style.display === "none" || messageDiv.style.display === "") {
+                messageDiv.style.display = "block";
+            } else {
+                messageDiv.style.display = "none";
+            }
+        }
+
+        const reasons = [
+            "You make me laugh even on my worst days.",
+            "Your hugs are the safest place in the world.",
+            "You support me in everything I do.",
+            "Your smile brightens my day.",
+            "You inspire me to be the best version of myself.",
+            "You’re always there when I need you.",
+            "You make me feel special and loved.",
+            "You challenge me to be a better person.",
+            "You believe in me when I don’t believe in myself.",
+            "You make even the simplest moments special.",
+            "You make me feel like the luckiest person in the world.",
+            "Your kindness is unmatched.",
+            "You are my greatest cheerleader.",
+            "You always know how to cheer me up.",
+            "Your intelligence is inspiring.",
+            "You are hardworking and dedicated.",
+            "You have the best sense of humor.",
+            "Your voice is the most comforting sound.",
+            "You have a heart of gold.",
+            "You never give up, no matter what.",
+            "You are my safe space.",
+            "You are full of surprises.",
+            "You make even ordinary moments extraordinary.",
+            "You listen to me so attentively.",
+            "You make life exciting and adventurous.",
+            "You inspire me to chase my dreams.",
+            "You never judge me, no matter what.",
+            "Your compliments always make my day.",
+            "You make me feel beautiful inside and out.",
+            "You have the warmest and most loving heart.",
+            "You are my biggest supporter.",
+            "Your determination is inspiring.",
+            "You make time for me, no matter how busy you are.",
+            "You are patient and understanding.",
+            "You give the best advice.",
+            "You always know what to say to make me smile.",
+            "Your dreams and ambitions are admirable.",
+            "You make me feel appreciated.",
+            "Your hugs make everything better.",
+            "You see the best in me even when I don’t.",
+            "You are my rock.",
+            "Your love is unconditional.",
+            "You make my world brighter.",
+            "You have the most charming personality.",
+            "You make every moment feel special.",
+            "You are my forever inspiration.",
+            "You love me for who I am.",
+            "You make my heart feel at home.",
+            "You are simply the best!",
+        ];
+
+        let currentIndex = 0; // Keep track of the current reason index
+
+        function showReason() {
+            document.getElementById("reason").textContent = reasons[currentIndex];
+        }
+
+        function nextReason() {
+            if (currentIndex < reasons.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to the first reason
+            }
+            showReason();
+        }
+
+        function previousReason() {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = reasons.length - 1; // Go to last reason when at the first one
+            }
+            showReason();
+        }
+
+        function randomReason() {
+            currentIndex = Math.floor(Math.random() * reasons.length);
+            showReason();
+        }
+
+        window.onload = showReason;
+    </script>
+</body>
+</html>
+</html>
