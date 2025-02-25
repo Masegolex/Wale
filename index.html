@@ -43,7 +43,7 @@
           💙✨
         </p>
       </div>
-      <h3>Here's a 100 reasons why I like you.</h3>
+      <h3>Here's 100 reasons why I like you.</h3>
       <div id="reason-box">
         <img id="cute-image-1" src="images/cute1.jpeg" alt="Cute Image" />
         <p id="reason"></p>
@@ -61,10 +61,7 @@
     <script>
       function toggleMessage() {
         const messageDiv = document.getElementById("special-message");
-        if (
-          messageDiv.style.display === "none" ||
-          messageDiv.style.display === ""
-        ) {
+        if (window.getComputedStyle(messageDiv).display === "none") {
           messageDiv.style.display = "block";
         } else {
           messageDiv.style.display = "none";
@@ -84,33 +81,33 @@
         "You are confident in your intelligence but never arrogant.",
         "You are kind and have the biggest heart.",
         "Hanging out with you is always educational, which I love.",
-        "You are a nerd that has an alagent dress sence",
+        "You are a nerd that has an elegant dress sense.",
         "You are honest and trustworthy.",
         "Your energy is contagious and makes life exciting.",
         "Your aura speaks when you enter the room.",
-        "I appreciate our meditations session 🧘🏾, as they always bring a sense of clarity."
+        "I appreciate our meditation sessions 🧘🏾, as they always bring a sense of clarity.",
         "I can always count on you, no matter what.",
         "I feel extremely feminine when I am with you.",
         "You are patient with me, even when I’m not feeling well.",
         "You make me feel safe and protected.",
-        "I really love your cuddles, they calm me my nervous system down😍.",
+        "I really love your cuddles; they calm my nervous system down😍.",
         "You are incredibly thoughtful in everything you do.",
         "You handle challenges with so much grace and strength.",
         "You make me laugh even when I don’t feel like smiling.",
         "Your sense of humor is unmatched.",
-        "You turn any moment into an adventure.",
+        "We spend most times laughing than arguing😂.",
         "Your witty remarks and comebacks always crack me up.",
         "You have a way of making everything feel lighter.",
         "Your goofy side is the cutest thing ever.",
         "You always know how to cheer me up.",
-        "Your laugh is contagious, and I love hearing it.",
+        "Your laugh😂 is contagious, and I love hearing it.",
         "You find joy in the smallest things.",
         "Even the most boring tasks become fun when I’m with you.",
         "You listen to me like I’m the most important person in the world.",
         "I love how present you are when we hang out.",
         "You make complex tasks seem so easy, which is inspiring.",
         "You encourage me to be the best version of myself.",
-        "I like the way you complement me, which is the weirdest way to complement a women but I think its cute.",
+        "I like the way you compliment me, which is the weirdest way to compliment a woman but I think it's cute.",
         "You support my goals and dreams as if they were your own.",
         "You never judge me, no matter what.",
         "You genuinely care about my happiness.",
@@ -127,7 +124,7 @@
         "You comfort me when I’m feeling down.",
         "You always know how to reassure me.",
         "You understand my emotions better than I do sometimes.",
-        "You never let me feel alone whenevere we are together.",
+        "You never let me feel alone whenever we are together.",
         "You are patient when I need time to process things.",
         "You give me space when I need it but are always there when I need you.",
         "You never let me feel insecure.",
@@ -137,27 +134,19 @@
         "Simply because you are Wale, and I love you just the way you are.",
       ];
 
-      let currentIndex = 0; // Keep track of the current reason index
+      let currentIndex = 0;
 
       function showReason() {
         document.getElementById("reason").textContent = reasons[currentIndex];
       }
 
       function nextReason() {
-        if (currentIndex < reasons.length - 1) {
-          currentIndex++;
-        } else {
-          currentIndex = 0; // Loop back to the first reason
-        }
+        currentIndex = (currentIndex + 1) % reasons.length;
         showReason();
       }
 
       function previousReason() {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = reasons.length - 1; // Go to last reason when at the first one
-        }
+        currentIndex = (currentIndex - 1 + reasons.length) % reasons.length;
         showReason();
       }
 
@@ -166,7 +155,7 @@
         showReason();
       }
 
-      window.onload = showReason;
+      document.addEventListener("DOMContentLoaded", showReason);
     </script>
   </body>
 </html>
